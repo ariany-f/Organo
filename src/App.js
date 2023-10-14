@@ -54,6 +54,8 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorCadastrado(colaborador)}/>
+      <section className="times">
+        <h1>Minha Organização</h1>
       {times.map(time => {
         return (
           <Time 
@@ -65,6 +67,7 @@ function App() {
           />
         )
       })}
+      </section>
       <Rodape />
     </div>
   );
