@@ -48,7 +48,11 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     },
-]
+  ]
+
+  const deletarColaborador = () => {
+    console.log('Deletando Colaborador');
+  }
 
   return (
     <div className="App">
@@ -64,6 +68,7 @@ function App() {
             corPrimaria={time.corPrimaria}
             corSecundaria={time.corSecundaria}
             colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+            aoDeletar={deletarColaborador}
           />
         )
       })}
