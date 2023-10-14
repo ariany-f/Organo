@@ -5,10 +5,11 @@ import Time from './componentes/Time';
 
 function App() {
 
-  const [colaboradores, setColaboradores] = useState({})
+  const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorCadastrado = (colaborador) => {
-      setColaboradores([...colaboradores, colaborador])
+    console.log(colaborador)
+    setColaboradores([...colaboradores, colaborador])
   }
 
   const times = [
@@ -55,7 +56,13 @@ function App() {
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorCadastrado(colaborador)}/>
       {times.map(time => {
         return (
-          <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>
+          <Time 
+            key={time.nome}
+            nome={time.nome}
+            corPrimaria={time.corPrimaria}
+            corSecundaria={time.corSecundaria}
+            colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          />
         )
       })}
     </div>
